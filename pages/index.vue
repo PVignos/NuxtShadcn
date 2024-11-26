@@ -1,25 +1,13 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import HomeCarousel from "~/components/ui/home-carousel/HomeCarousel.vue";
+</script>
 
 <template>
   <div class="min-h-screen bg-gray-50">
     <main>
-      <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        <!-- Hero Section -->
-        <div class="relative">
-          <img
-            src="/assets/images/placeholder.svg?height=400&width=800"
-            alt="Mattinata coastline"
-            class="w-full h-96 object-cover rounded-lg shadow-lg"
-          />
-          <div
-            class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center"
-          >
-            <h2 class="text-4xl text-white font-bold text-center">
-              Welcome to Paradise in Puglia
-            </h2>
-          </div>
-        </div>
+      <HomeCarousel />
 
+      <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <!-- About Section -->
         <section id="about" class="mt-12">
           <h2 class="text-2xl font-semibold text-gray-900 mb-4">
@@ -45,7 +33,7 @@
               class="bg-white rounded-lg shadow-md overflow-hidden"
             >
               <img
-                src="/assets/images/placeholder.svg?height=200&width=300"
+                src="/images/placeholder.svg"
                 :alt="`Apartment ${i}`"
                 class="w-full h-48 object-cover"
               />

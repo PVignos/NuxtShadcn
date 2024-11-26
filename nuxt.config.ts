@@ -1,6 +1,16 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2024-04-03',
+  app: {
+    head: {
+      link: [
+        {
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/css2?family=Poppins&display=swap",
+        },
+      ],
+    },
+  },
+  compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
   postcss: {
     plugins: {
@@ -9,16 +19,17 @@ export default defineNuxtConfig({
     },
   },
   shadcn: {
-    prefix: '',
-    componentDir: './components/ui'
+    prefix: "",
+    componentDir: "./components/ui",
   },
   colorMode: {
-    classSuffix: '',
+    classSuffix: "",
   },
   modules: [
-    '@nuxt/eslint',
-    '@nuxtjs/tailwindcss',
-    'shadcn-nuxt',
-    '@nuxtjs/color-mode'
-  ]
-})
+    "@nuxt/eslint",
+    "@nuxtjs/tailwindcss",
+    "shadcn-nuxt",
+    "@nuxtjs/color-mode",
+    "vue3-carousel-nuxt",
+  ],
+});
