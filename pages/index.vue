@@ -1,333 +1,133 @@
-<script setup lang="ts">
-import { File, ListFilter, MoreHorizontal, PlusCircle } from "lucide-vue-next";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <Tabs default-value="all">
-    <div class="flex items-center">
-      <TabsList>
-        <TabsTrigger value="all"> All </TabsTrigger>
-        <TabsTrigger value="active"> Active </TabsTrigger>
-        <TabsTrigger value="draft"> Draft </TabsTrigger>
-        <TabsTrigger value="archived" class="hidden sm:flex">
-          Archived
-        </TabsTrigger>
-      </TabsList>
-      <div class="ml-auto flex items-center gap-2">
-        <DropdownMenu>
-          <DropdownMenuTrigger as-child>
-            <Button variant="outline" size="sm" class="h-7 gap-1">
-              <ListFilter class="h-3.5 w-3.5" />
-              <span class="sr-only sm:not-sr-only sm:whitespace-nowrap">
-                Filter
-              </span>
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Filter by</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem checked> Active </DropdownMenuItem>
-            <DropdownMenuItem>Draft</DropdownMenuItem>
-            <DropdownMenuItem> Archived </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-        <Button size="sm" variant="outline" class="h-7 gap-1">
-          <File class="h-3.5 w-3.5" />
-          <span class="sr-only sm:not-sr-only sm:whitespace-nowrap">
-            Export
-          </span>
-        </Button>
-        <Button size="sm" class="h-7 gap-1">
-          <PlusCircle class="h-3.5 w-3.5" />
-          <span class="sr-only sm:not-sr-only sm:whitespace-nowrap">
-            Add Product
-          </span>
-        </Button>
-      </div>
-    </div>
-    <TabsContent value="all">
-      <Card>
-        <CardHeader>
-          <CardTitle>Products</CardTitle>
-          <CardDescription>
-            Manage your products and view their sales performance.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead class="hidden w-[100px] sm:table-cell">
-                  <span class="sr-only">img</span>
-                </TableHead>
-                <TableHead>Name</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead class="hidden md:table-cell"> Price </TableHead>
-                <TableHead class="hidden md:table-cell">
-                  Total Sales
-                </TableHead>
-                <TableHead class="hidden md:table-cell"> Created at </TableHead>
-                <TableHead>
-                  <span class="sr-only">Actions</span>
-                </TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              <TableRow>
-                <TableCell class="hidden sm:table-cell">
-                  <img
-                    alt="Product image"
-                    class="aspect-square rounded-md object-cover"
-                    height="64"
-                    src="/assets/images/placeholder.svg"
-                    width="64"
-                  />
-                </TableCell>
-                <TableCell class="font-medium">
-                  Laser Lemonade Machine
-                </TableCell>
-                <TableCell>
-                  <Badge variant="outline"> Draft </Badge>
-                </TableCell>
-                <TableCell class="hidden md:table-cell"> $499.99 </TableCell>
-                <TableCell class="hidden md:table-cell"> 25 </TableCell>
-                <TableCell class="hidden md:table-cell">
-                  2023-07-12 10:42 AM
-                </TableCell>
-                <TableCell>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger as-child>
-                      <Button aria-haspopup="true" size="icon" variant="ghost">
-                        <MoreHorizontal class="h-4 w-4" />
-                        <span class="sr-only">Toggle menu</span>
-                      </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
-                      <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                      <DropdownMenuItem>Edit</DropdownMenuItem>
-                      <DropdownMenuItem>Delete</DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell class="hidden sm:table-cell">
-                  <img
-                    alt="Product image"
-                    class="aspect-square rounded-md object-cover"
-                    height="64"
-                    src="/assets/images/placeholder.svg"
-                    width="64"
-                  />
-                </TableCell>
-                <TableCell class="font-medium">
-                  Hypernova Headphones
-                </TableCell>
-                <TableCell>
-                  <Badge variant="outline"> Active </Badge>
-                </TableCell>
-                <TableCell class="hidden md:table-cell"> $129.99 </TableCell>
-                <TableCell class="hidden md:table-cell"> 100 </TableCell>
-                <TableCell class="hidden md:table-cell">
-                  2023-10-18 03:21 PM
-                </TableCell>
-                <TableCell>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger as-child>
-                      <Button aria-haspopup="true" size="icon" variant="ghost">
-                        <MoreHorizontal class="h-4 w-4" />
-                        <span class="sr-only">Toggle menu</span>
-                      </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
-                      <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                      <DropdownMenuItem>Edit</DropdownMenuItem>
-                      <DropdownMenuItem>Delete</DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell class="hidden sm:table-cell">
-                  <img
-                    alt="Product image"
-                    class="aspect-square rounded-md object-cover"
-                    height="64"
-                    src="/assets/images/placeholder.svg"
-                    width="64"
-                  />
-                </TableCell>
-                <TableCell class="font-medium"> AeroGlow Desk Lamp </TableCell>
-                <TableCell>
-                  <Badge variant="outline"> Active </Badge>
-                </TableCell>
-                <TableCell class="hidden md:table-cell"> $39.99 </TableCell>
-                <TableCell class="hidden md:table-cell"> 50 </TableCell>
-                <TableCell class="hidden md:table-cell">
-                  2023-11-29 08:15 AM
-                </TableCell>
-                <TableCell>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger as-child>
-                      <Button aria-haspopup="true" size="icon" variant="ghost">
-                        <MoreHorizontal class="h-4 w-4" />
-                        <span class="sr-only">Toggle menu</span>
-                      </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
-                      <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                      <DropdownMenuItem>Edit</DropdownMenuItem>
-                      <DropdownMenuItem>Delete</DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell class="hidden sm:table-cell">
-                  <img
-                    alt="Product image"
-                    class="aspect-square rounded-md object-cover"
-                    height="64"
-                    src="/assets/images/placeholder.svg"
-                    width="64"
-                  />
-                </TableCell>
-                <TableCell class="font-medium">
-                  TechTonic Energy Drink
-                </TableCell>
-                <TableCell>
-                  <Badge variant="secondary"> Draft </Badge>
-                </TableCell>
-                <TableCell class="hidden md:table-cell"> $2.99 </TableCell>
-                <TableCell class="hidden md:table-cell"> 0 </TableCell>
-                <TableCell class="hidden md:table-cell">
-                  2023-12-25 11:59 PM
-                </TableCell>
-                <TableCell>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger as-child>
-                      <Button aria-haspopup="true" size="icon" variant="ghost">
-                        <MoreHorizontal class="h-4 w-4" />
-                        <span class="sr-only">Toggle menu</span>
-                      </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
-                      <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                      <DropdownMenuItem>Edit</DropdownMenuItem>
-                      <DropdownMenuItem>Delete</DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell class="hidden sm:table-cell">
-                  <img
-                    alt="Product image"
-                    class="aspect-square rounded-md object-cover"
-                    height="64"
-                    src="/assets/images/placeholder.svg"
-                    width="64"
-                  />
-                </TableCell>
-                <TableCell class="font-medium">
-                  Gamer Gear Pro Controller
-                </TableCell>
-                <TableCell>
-                  <Badge variant="outline"> Active </Badge>
-                </TableCell>
-                <TableCell class="hidden md:table-cell"> $59.99 </TableCell>
-                <TableCell class="hidden md:table-cell"> 75 </TableCell>
-                <TableCell class="hidden md:table-cell">
-                  2024-01-01 12:00 AM
-                </TableCell>
-                <TableCell>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger as-child>
-                      <Button aria-haspopup="true" size="icon" variant="ghost">
-                        <MoreHorizontal class="h-4 w-4" />
-                        <span class="sr-only">Toggle menu</span>
-                      </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
-                      <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                      <DropdownMenuItem>Edit</DropdownMenuItem>
-                      <DropdownMenuItem>Delete</DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell class="hidden sm:table-cell">
-                  <img
-                    alt="Product image"
-                    class="aspect-square rounded-md object-cover"
-                    height="64"
-                    src="/assets/images/placeholder.svg"
-                    width="64"
-                  />
-                </TableCell>
-                <TableCell class="font-medium"> Luminous VR Headset </TableCell>
-                <TableCell>
-                  <Badge variant="outline"> Active </Badge>
-                </TableCell>
-                <TableCell class="hidden md:table-cell"> $199.99 </TableCell>
-                <TableCell class="hidden md:table-cell"> 30 </TableCell>
-                <TableCell class="hidden md:table-cell">
-                  2024-02-14 02:14 PM
-                </TableCell>
-                <TableCell>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger as-child>
-                      <Button aria-haspopup="true" size="icon" variant="ghost">
-                        <MoreHorizontal class="h-4 w-4" />
-                        <span class="sr-only">Toggle menu</span>
-                      </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
-                      <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                      <DropdownMenuItem>Edit</DropdownMenuItem>
-                      <DropdownMenuItem>Delete</DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                </TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
-        </CardContent>
-        <CardFooter>
-          <div class="text-xs text-muted-foreground">
-            Showing <strong>1-10</strong> of <strong>32</strong>
-            products
+  <div class="min-h-screen bg-gray-50">
+    <main>
+      <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <!-- Hero Section -->
+        <div class="relative">
+          <img
+            src="/assets/images/placeholder.svg?height=400&width=800"
+            alt="Mattinata coastline"
+            class="w-full h-96 object-cover rounded-lg shadow-lg"
+          />
+          <div
+            class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center"
+          >
+            <h2 class="text-4xl text-white font-bold text-center">
+              Welcome to Paradise in Puglia
+            </h2>
           </div>
-        </CardFooter>
-      </Card>
-    </TabsContent>
-  </Tabs>
+        </div>
+
+        <!-- About Section -->
+        <section id="about" class="mt-12">
+          <h2 class="text-2xl font-semibold text-gray-900 mb-4">
+            About Our Property
+          </h2>
+          <p class="text-gray-600">
+            Experience the beauty of Mattinata, Puglia in our charming vacation
+            home. With three unique apartments, we offer the perfect retreat for
+            families, couples, or groups of friends looking to explore the
+            stunning Adriatic coast.
+          </p>
+        </section>
+
+        <!-- Apartments Section -->
+        <section id="apartments" class="mt-12">
+          <h2 class="text-2xl font-semibold text-gray-900 mb-4">
+            Our Apartments
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div
+              v-for="i in 3"
+              :key="i"
+              class="bg-white rounded-lg shadow-md overflow-hidden"
+            >
+              <img
+                src="/assets/images/placeholder.svg?height=200&width=300"
+                :alt="`Apartment ${i}`"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-4">
+                <h3 class="font-semibold text-lg mb-2">Apartment {{ i }}</h3>
+                <p class="text-gray-600">
+                  Cozy and comfortable, perfect for your stay in Mattinata.
+                </p>
+                <button
+                  class="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300"
+                >
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Location Section -->
+        <section id="location" class="mt-12">
+          <h2 class="text-2xl font-semibold text-gray-900 mb-4">
+            Our Location
+          </h2>
+          <div class="aspect-w-16 aspect-h-9">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47736.91999146693!2d16.014699078098687!3d41.70851217130064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1337b4308ecd3c6d%3A0x4100fef11c0f9e0!2s71030%20Mattinata%2C%20Province%20of%20Foggia%2C%20Italy!5e0!3m2!1sen!2sus!4v1653835815361!5m2!1sen!2sus"
+              width="600"
+              height="450"
+              style="border: 0"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              class="w-full h-full rounded-lg shadow-lg"
+            />
+          </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="mt-12 mb-12">
+          <h2 class="text-2xl font-semibold text-gray-900 mb-4">Contact Us</h2>
+          <form class="max-w-lg">
+            <div class="mb-4">
+              <label for="name" class="block text-gray-700 font-bold mb-2"
+                >Name</label
+              >
+              <input
+                id="name"
+                type="text"
+                name="name"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <div class="mb-4">
+              <label for="email" class="block text-gray-700 font-bold mb-2"
+                >Email</label
+              >
+              <input
+                id="email"
+                type="email"
+                name="email"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <div class="mb-4">
+              <label for="message" class="block text-gray-700 font-bold mb-2"
+                >Message</label
+              >
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <button
+              type="submit"
+              class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300"
+            >
+              Send Message
+            </button>
+          </form>
+        </section>
+      </div>
+    </main>
+  </div>
 </template>
